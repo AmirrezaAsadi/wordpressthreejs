@@ -36,7 +36,7 @@
             try {
                 const [devResponse, edgeResponse] = await Promise.all([
                     fetch('./network.csv'),
-                    fetch('./network_edges.csv')
+                    fetch('./network_edges-.csv')
                 ]);
 
                 if (!devResponse.ok || !edgeResponse.ok) {
