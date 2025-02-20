@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D Developer Network</title>
+    <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        #info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="info">
+        <p>Orbit: Left-click + drag</p>
+        <p>Zoom: Scroll wheel</p>
+        <p>Pan: Right-click + drag</p>
+        <p>Drag node: Click + hold</p>
+    </div>
+
+    <script>
+        async function loadAndDraw() {
+            try {
+                const [devResponse, edgeResponse] = await Promise.all([
+                    fetch('./network.csv'),
+                    fetch('./network_edges.csv')
+                ]);
+
+                if (!devResponse.ok || !edgeResponse.ok) {
+                    throw new Error('Failed to fetch CSV files');
+                }
+
+                const [devText, edgeText] = await Promise.all([
+                    devResponse.text(),
+                    edgeResponse.text()
+                ]);
+
+                const developers = Papa.parse(devText, {
+                    header: true,
+                    dynamicTyping: true,
+                    skipEmptyLines: true
+                }).data.filter(d => d.developer_id);
+
+                const edges = Papa.parse(edgeText, {
+                    header: true,
+                    dynamicTyping: true,
+                    skipEmptyLines: true
+                }).data.filter(d => d.source && d.target);
+
+                if (!developers.length || !edges.length) {
+                    throw new Error('No valid data found in CSV files');
+                }
+
+                create3DGraph(developers, edges);
+            } catch (error) {
+                console.error('Error loading data:', error);
+                alert('Failed to load data. Check console and CSV files.');
+            }
+        }
+
+        function create3DGraph(developers, edges) {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            // Orbit controls
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+
+            // Prepare nodes with initial positions and textures
+            const nodes = developers.map(dev => ({
+                id: dev.developer_id,
+                country: dev.country || 'Unknown',
+                betweenness: Number(dev.betweenness) || 0,
+                in_degree: Number(dev.in_degree) || 0,
+                out_degree: Number(dev.out_degree) || 0,
+                x: Math.random() * 200 - 100, // Random initial position
+                y: Math.random() * 200 - 100,
+                z: Math.random() * 200 - 100,
+                vx: 0, vy: 0, vz: 0 // Velocities for force simulation
+            }));
+
+            const nodeMap = new Map(nodes.map(n => [n.id, n]));
+
+            // Load flag textures
+            const loader = new THREE.TextureLoader();
+            const nodeObjects = nodes.map(node => {
+                const countryCode = getCountryCode(node.country);
+                const flagUrl = countryCode 
+                    ? `https://flagcdn.com/16x12/${countryCode.toLowerCase()}.png` 
+                    : 'https://flagcdn.com/16x12/un.png';
+
+                const geometry = new THREE.SphereGeometry(5, 32, 32);
+                const material = new THREE.MeshBasicMaterial({
+                    map: loader.load(flagUrl),
+                    transparent: true
+                });
+                const sphere = new THREE.Mesh(geometry, material);
+                sphere.position.set(node.x, node.y, node.z);
+                sphere.userData = node; // Store node data
+                scene.add(sphere);
+                return sphere;
+            });
+
+            // Draw edges
+            const edgeGeometry = new THREE.BufferGeometry();
+            const edgeMaterial = new THREE.LineBasicMaterial({ color: 0xcccccc, opacity: 0.2, transparent: true });
+            const positions = [];
+
+            edges.forEach(edge => {
+                const source = nodeMap.get(edge.source);
+                const target = nodeMap.get(edge.target);
+                if (source && target) {
+                    positions.push(source.x, source.y, source.z);
+                    positions.push(target.x, target.y, target.z);
+                }
+            });
+
+            edgeGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+            const edgeLines = new THREE.LineSegments(edgeGeometry, edgeMaterial);
+            scene.add(edgeLines);
+
+            // Raycaster for dragging
+            const raycaster = new THREE.Raycaster();
+            const mouse = new THREE.Vector2();
+            let draggedNode = null;
+
+            renderer.domElement.addEventListener('mousedown', onMouseDown);
+            renderer.domElement.addEventListener('mousemove', onMouseMove);
+            renderer.domElement.addEventListener('mouseup', onMouseUp);
+
+            function onMouseDown(event) {
+                event.preventDefault();
+                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+                raycaster.setFromCamera(mouse, camera);
+                const intersects = raycaster.intersectObjects(nodeObjects);
+                if (intersects.length > 0) {
+                    draggedNode = intersects[0].object;
+                    controls.enabled = false; // Disable orbit while dragging
+                }
+            }
+
+            function onMouseMove(event) {
+                if (draggedNode) {
+                    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+                    raycaster.setFromCamera(mouse, camera);
+                    const intersects = raycaster.intersectObject(new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000), new THREE.MeshBasicMaterial()));
+                    if (intersects.length > 0) {
+                        const pos = intersects[0].point;
+                        draggedNode.position.copy(pos);
+                        draggedNode.userData.x = pos.x;
+                        draggedNode.userData.y = pos.y;
+                        draggedNode.userData.z = pos.z;
+                    }
+                }
+            }
+
+            function onMouseUp() {
+                draggedNode = null;
+                controls.enabled = true;
+            }
+
+            // Simple force simulation
+            function simulate() {
+                const alpha = 0.1; // Simulation strength
+                nodes.forEach(node => {
+                    if (node !== draggedNode?.userData) {
+                        // Repulsion between nodes
+                        nodes.forEach(other => {
+                            if (node !== other) {
+                                const dx = node.x - other.x;
+                                const dy = node.y - other.y;
+                                const dz = node.z - other.z;
+                                const distance = Math.sqrt(dx * dx + dy * dy + dz * dz) || 1;
+                                const force = 500 / (distance * distance); // Repulsion force
+                                node.vx += (dx / distance) * force * alpha;
+                                node.vy += (dy / distance) * force * alpha;
+                                node.vz += (dz / distance) * force * alpha;
+                            }
+                        });
+
+                        // Attraction along edges
+                        edges.forEach(edge => {
+                            if (edge.source === node.id) {
+                                const target = nodeMap.get(edge.target);
+                                const dx = target.x - node.x;
+                                const dy = target.y - node.y;
+                                const dz = target.z - node.z;
+                                const distance = Math.sqrt(dx * dx + dy * dy + dz * dz) || 1;
+                                node.vx += (dx / distance) * alpha * 0.1;
+                                node.vy += (dy / distance) * alpha * 0.1;
+                                node.vz += (dz / distance) * alpha * 0.1;
+                                target.vx -= (dx / distance) * alpha * 0.1;
+                                target.vy -= (dy / distance) * alpha * 0.1;
+                                target.vz -= (dz / distance) * alpha * 0.1;
+                            }
+                        });
+
+                        // Damping
+                        node.vx *= 0.95;
+                        node.vy *= 0.95;
+                        node.vz *= 0.95;
+
+                        // Update position
+                        node.x += node.vx;
+                        node.y += node.vy;
+                        node.z += node.vz;
+                    }
+                });
+
+                // Update node and edge positions
+                nodeObjects.forEach((obj, i) => {
+                    obj.position.set(nodes[i].x, nodes[i].y, nodes[i].z);
+                });
+
+                const newPositions = [];
+                edges.forEach(edge => {
+                    const source = nodeMap.get(edge.source);
+                    const target = nodeMap.get(edge.target);
+                    if (source && target) {
+                        newPositions.push(source.x, source.y, source.z);
+                        newPositions.push(target.x, target.y, target.z);
+                    }
+                });
+                edgeGeometry.setAttribute('position', new THREE.Float32BufferAttribute(newPositions, 3));
+                edgeGeometry.attributes.position.needsUpdate = true;
+            }
+
+            camera.position.z = 300;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                simulate();
+                controls.update();
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        function getCountryCode(country) {
+            const countryCodes = {
+                'United States': 'US',
+                'United Kingdom': 'GB',
+                'Germany': 'DE',
+                'France': 'FR',
+                'Japan': 'JP',
+                'China': 'CN',
+                'India': 'IN',
+                'Unknown': 'UN'
+            };
+            return countryCodes[country] || 'UN';
+        }
+
+        loadAndDraw();
+    </script>
+</body>
+</html>
