@@ -15,10 +15,7 @@ audrasjb,ryelle,France,Unknown,1
 audrasjb,timse201,France,Germany,1
 audrasjb,devhaozi,France,China,1
 karmatosed,audrasjb,United Kingdom,France,1
-Sukhendu2002,Sukhendu2002,India,India,1
-im3dabasia,im3dabasia,India,India,1
 apermo,kkmuffme,Germany,Unknown,1
-apermo,apermo,Germany,Germany,1
 apermo,dream-encode,Germany,United States,1
 apermo,pbearne,Germany,Canada,1
 apermo,adamsilverstein,Germany,USA,1
@@ -46,7 +43,6 @@ mukeshpanchal27,Sukhendu2002,India,India,1
 mukeshpanchal27,johnbillion,India,United Kingdom,1
 mukeshpanchal27,himanshupathak95,India,India,1
 mukeshpanchal27,dlh01,India,Unknown,1
-mukeshpanchal27,mukeshpanchal27,India,India,1
 mukeshpanchal27,anton-vlasenko,India,Unknown,1
 mukeshpanchal27,desrosj,India,United States,1
 mukeshpanchal27,felixarntz,India,United States,1
@@ -69,7 +65,6 @@ joedolson,Sukhendu2002,United States,India,1
 joedolson,Debarghya-Banerjee,United States,Unknown,1
 joedolson,im3dabasia,United States,India,1
 joedolson,yogeshbhutkar,United States,India,1
-sabernhardt,sabernhardt,Unknown,Unknown,1
 sabernhardt,Infinite-Null,Unknown,India,1
 sabernhardt,dhruvang21,Unknown,Unknown,1
 sabernhardt,viralsampat-multidots,Unknown,India,1
@@ -78,7 +73,6 @@ jonnynews,swissspidy,United Kingdom,Switzerland,1
 jonnynews,nirajgiriXD,United Kingdom,Nepal,1
 jonnynews,joemcgill,United Kingdom,United States,1
 jonnynews,anton-vlasenko,United Kingdom,Unknown,1
-swissspidy,swissspidy,Switzerland,Switzerland,1
 swissspidy,narenin,Switzerland,India,1
 swissspidy,gadelhas,Switzerland,Unknown,1
 swissspidy,johnbillion,Switzerland,United Kingdom,1
@@ -94,28 +88,22 @@ swissspidy,sirreal,Switzerland,Spain,1
 swissspidy,TimothyBJacobs,Switzerland,United States,1
 swissspidy,colinleroy,Switzerland,Unknown,1
 swissspidy,ellatrix,Switzerland,Unknown,1
-narenin,narenin,India,India,1
 spacedmonkey,narenin,United Kingdom,India,1
-spacedmonkey,spacedmonkey,United Kingdom,United Kingdom,1
 spacedmonkey,arzola,United Kingdom,Canada,1
 spacedmonkey,anton-vlasenko,United Kingdom,Unknown,1
 spacedmonkey,ramonjd,United Kingdom,Unknown,1
 afercia,hbhalodia,Italy,India,1
-Infinite-Null,Infinite-Null,India,India,1
 jamieblomerus,prasadkarmalkar,Sweden,India,1
 carolinan,Sukhendu2002,Sweden,India,1
-carolinan,carolinan,Sweden,Sweden,1
 carolinan,vasilpichurov,Sweden,Unknown,1
 dream-encode,spacedmonkey,United States,United Kingdom,1
 johnbillion,dream-encode,United Kingdom,United States,1
-johnbillion,johnbillion,United Kingdom,United Kingdom,1
 johnbillion,Kevinlearynet,United Kingdom,United States,1
 johnbillion,desrosj,United Kingdom,United States,1
 johnbillion,swissspidy,United Kingdom,Switzerland,1
 felixarntz,spacedmonkey,United States,United Kingdom,1
 felixarntz,pbearne,United States,Canada,1
 felixarntz,johnbillion,United States,United Kingdom,1
-felixarntz,felixarntz,United States,United States,1
 felixarntz,mukeshpanchal27,United States,India,1
 felixarntz,swissspidy,United States,Switzerland,1
 felixarntz,peterwilsoncc,United States,Australia,1
@@ -125,10 +113,9 @@ felixarntz,adamsilverstein,United States,USA,1
 desrosj,johnbillion,United States,United Kingdom,1
 desrosj,Infinite-Null,United States,India,1
 desrosj,swissspidy,United States,Switzerland,1
-desrosj,desrosj,United States,United States,1
 desrosj,mukeshpanchal27,United States,India,1
 desrosj,worais,United States,Brazil,1
-desrosj,costdev,United States,United Kingdom,1
+desrosj,costdev,United States,Ireland,1
 desrosj,pbearne,United States,Canada,1
 desrosj,ockham,United States,Germany,1
 desrosj,audrasjb,United States,France,1
@@ -136,17 +123,13 @@ maciejmackowiak,SainathPoojary,Unknown,India,1
 joemcgill,SainathPoojary,United States,India,1
 joemcgill,spacedmonkey,United States,United Kingdom,1
 joemcgill,mukeshpanchal27,United States,India,1
-joemcgill,joemcgill,United States,United States,1
 joemcgill,pbearne,United States,Canada,1
 joemcgill,adamsilverstein,United States,USA,1
-pbearne,pbearne,Canada,Canada,1
-costdev,peterwilsoncc,United Kingdom,Australia,1
-costdev,costdev,United Kingdom,United Kingdom,1
-costdev,pbearne,United Kingdom,Canada,1
-costdev,vedanshujain,United Kingdom,India,1
-costdev,audrasjb,United Kingdom,France,1
-costdev,moorscode,United Kingdom,Netherlands,1
-peterwilsoncc,peterwilsoncc,Australia,Australia,1
+costdev,peterwilsoncc,Ireland,Australia,1
+costdev,pbearne,Ireland,Canada,1
+costdev,vedanshujain,Ireland,India,1
+costdev,audrasjb,Ireland,France,1
+costdev,moorscode,Ireland,Netherlands,1
 peterwilsoncc,spacedmonkey,Australia,United Kingdom,1
 peterwilsoncc,joemcgill,Australia,United States,1
 peterwilsoncc,Sukhendu2002,Australia,India,1
@@ -155,7 +138,7 @@ peterwilsoncc,johnbillion,Australia,United Kingdom,1
 peterwilsoncc,SergeyBiryukov,Australia,Russia,1
 peterwilsoncc,yogeshbhutkar,Australia,India,1
 peterwilsoncc,TimothyBJacobs,Australia,United States,1
-peterwilsoncc,costdev,Australia,United Kingdom,1
+peterwilsoncc,costdev,Australia,Ireland,1
 peterwilsoncc,hellofromtonya,Australia,United States,1
 peterwilsoncc,audrasjb,Australia,France,1
 peterwilsoncc,ihosav,Australia,Unknown,1
@@ -164,7 +147,6 @@ martinkrcho,Sukhendu2002,Slovakia,India,1
 martinkrcho,zetrider,Slovakia,Unknown,1
 martinkrcho,Debarghya-Banerjee,Slovakia,Unknown,1
 martinkrcho,nirajgiriXD,Slovakia,Nepal,1
-arzola,arzola,Canada,Canada,1
 westonruter,arzola,USA,Canada,1
 westonruter,DAreRodz,USA,Spain,1
 westonruter,felixarntz,USA,United States,1
@@ -175,8 +157,6 @@ gziolo,dlh01,Poland,Unknown,1
 gziolo,mukeshpanchal27,Poland,India,1
 gziolo,ockham,Poland,Germany,1
 gziolo,sirreal,Poland,Spain,1
-himanshupathak95,himanshupathak95,India,India,1
-DAreRodz,DAreRodz,Spain,Spain,1
 cbravobernal,DAreRodz,Spain,Spain,1
 cbravobernal,sirreal,Spain,Spain,1
 cbravobernal,ockham,Spain,Germany,1
@@ -184,11 +164,8 @@ michalczaplinski,DAreRodz,Portugal,Spain,1
 luisherranz,DAreRodz,Unknown,Spain,1
 dmsnell,DAreRodz,Unknown,Spain,1
 dmsnell,sirreal,Unknown,Spain,1
-dmsnell,dmsnell,Unknown,Unknown,1
 hellofromtonya,anton-vlasenko,United States,Unknown,1
-hellofromtonya,costdev,United States,United Kingdom,1
-hellofromtonya,hellofromtonya,United States,United States,1
-anton-vlasenko,anton-vlasenko,Unknown,Unknown,1
+hellofromtonya,costdev,United States,Ireland,1
 anton-vlasenko,Aljullu,Unknown,Spain,1
 anton-vlasenko,mi5t4n,Unknown,Nepal,1
 anton-vlasenko,spacedmonkey,Unknown,United Kingdom,1
@@ -197,8 +174,7 @@ soatok,johnbillion,USA,United Kingdom,1
 calvinalkan,johnbillion,Unknown,United Kingdom,1
 Slavco,johnbillion,Unknown,United Kingdom,1
 TimothyBJacobs,johnbillion,United States,United Kingdom,1
-TimothyBJacobs,TimothyBJacobs,United States,United States,1
-TimothyBJacobs,costdev,United States,United Kingdom,1
+TimothyBJacobs,costdev,United States,Ireland,1
 TimothyBJacobs,ihosav,United States,Unknown,1
 dlh01,mukeshpanchal27,Unknown,India,1
 SantosGuillamot,mukeshpanchal27,Spain,India,1
@@ -208,65 +184,47 @@ rmccue,joemcgill,United Kingdom,United States,1
 ironprogrammer,anton-vlasenko,United States,Unknown,1
 noamr,felixarntz,Israel,United States,1
 bramus,felixarntz,Belgium,United States,1
-zetrider,zetrider,Unknown,Unknown,1
 kadamwhite,anton-vlasenko,United States,Unknown,1
 kadamwhite,joemcgill,United States,United States,1
 aristath,SergeyBiryukov,Greece,Russia,1
 aristath,maltfield,Greece,Unknown,1
 aristath,deepakrohillas,Greece,India,1
 aristath,sabernhardt,Greece,Unknown,1
-SergeyBiryukov,costdev,Russia,United Kingdom,1
+SergeyBiryukov,costdev,Russia,Ireland,1
 SergeyBiryukov,audrasjb,Russia,France,1
-Debarghya-Banerjee,Debarghya-Banerjee,Unknown,Unknown,1
 Debarghya-Banerjee,aslamdoctor,Unknown,India,1
-d-alleyne,d-alleyne,Barbados,Barbados,1
 oandregal,d-alleyne,Spain,Barbados,1
-wprashed,wprashed,Bangladesh,Bangladesh,1
 adamsilverstein,felixarntz,USA,United States,1
-adamsilverstein,adamsilverstein,USA,USA,1
 Mai-Saad,Sukhendu2002,Unknown,India,1
 sirreal,dmsnell,Spain,Unknown,1
-sirreal,sirreal,Spain,Spain,1
 sirreal,ockham,Spain,Germany,1
 sirreal,desrosj,Spain,United States,1
-sirreal,costdev,Spain,United Kingdom,1
+sirreal,costdev,Spain,Ireland,1
 mcsf,oandregal,Portugal,Spain,1
 adamziel,sirreal,Poland,Spain,1
 sybrew,adamsilverstein,Netherlands,USA,1
 aaronjorbin,desrosj,Unknown,United States,1
-aaronjorbin,costdev,Unknown,United Kingdom,1
+aaronjorbin,costdev,Unknown,Ireland,1
 aaronjorbin,nathkrill,Unknown,Unknown,1
 kaitohm,Infinite-Null,Japan,India,1
-AakifKadiwala,AakifKadiwala,Unknown,Unknown,1
 szepeviktor,deepakrohillas,Hungary,India,1
-ramonjd,ramonjd,Unknown,Unknown,1
 ramonjd,andrewserong,Unknown,Australia,1
 ramonjd,tellthemachines,Unknown,Australia,1
-andrewserong,andrewserong,Australia,Australia,1
 aaronrobertshaw,andrewserong,Australia,Australia,1
 antpb,joedolson,United States,United States,1
-yogeshbhutkar,yogeshbhutkar,India,India,1
-ockham,ockham,Germany,Germany,1
 ockham,sirreal,Germany,Spain,1
 devhaozi,worais,China,Brazil,1
-benazeer-ben,benazeer-ben,India,India,1
-Aljullu,Aljullu,Spain,Spain,1
 azaozz,Aljullu,Unknown,Spain,1
 ntsekouras,Aljullu,Greece,Spain,1
 ntsekouras,youknowriad,Greece,Spain,1
 q0rban,nathkrill,Unknown,Unknown,1
 Mamaduka,TimothyBJacobs,Georgia,United States,1
 Mamaduka,ellatrix,Georgia,Unknown,1
-colinleroy,colinleroy,Unknown,Unknown,1
 jrfnl,PARTHVATALIYA,The Netherlands,Unknown,1
 jrfnl,dhruvang21,The Netherlands,Unknown,1
 jrfnl,johnbillion,The Netherlands,United Kingdom,1
-PARTHVATALIYA,PARTHVATALIYA,Unknown,Unknown,1
 Clorith,desrosj,Norway,United States,1
 youknowriad,gigitux,Spain,Italy,1
-youknowriad,youknowriad,Spain,Spain,1
-gigitux,gigitux,Italy,Italy,1
-ellatrix,ellatrix,Unknown,Unknown,1
 jorgefilipecosta,ellatrix,Unknown,Unknown,1
 Rajinsharwar,ptesei,Canada,France,1
 akasunil,himanshupathak95,India,India,1
@@ -274,6 +232,6 @@ Ravvsky,spacedmonkey,Poland,United Kingdom,1
 masteradhoc,spacedmonkey,Liechtenstein,United Kingdom,1
 nhrrob,pbearne,Bangladesh,Canada,1
 rafiahmedd,vedanshujain,Bangladesh,India,1
-pbiron,costdev,United States,United Kingdom,1
+pbiron,costdev,United States,Ireland,1
 dd32,pbearne,Australia,Canada,1
 sgomes,adamsilverstein,Portugal,USA,1
